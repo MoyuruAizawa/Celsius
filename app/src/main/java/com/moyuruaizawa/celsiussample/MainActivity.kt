@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
       override fun run() {
         celsius.temperatures
             .map { (type, temp) -> "$type: $temp" }
-            .reduce { acc, s -> "$acc\n$s" }
+            .fold("") { acc, s -> "$acc\n$s" }
             .let { Log.i("TEMP", "\n$it") }
       }
-    }, 0, 10000)
+    }, 0, 5000)
   }
 
   override fun onDestroy() {
