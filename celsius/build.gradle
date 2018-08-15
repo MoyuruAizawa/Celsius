@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'kotlin-android'
+
+final VERSION_NAME = "0.1.0"
 
 android {
   compileSdkVersion 28
@@ -8,7 +11,7 @@ android {
     minSdkVersion 15
     targetSdkVersion 28
     versionCode 1
-    versionName "1.0.0"
+    versionName VERSION_NAME
 
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
@@ -26,4 +29,12 @@ dependencies {
 }
 repositories {
   mavenCentral()
+}
+publish {
+  userOrg = 'lvla'
+  groupId = 'com.moyuru'
+  artifactId = 'celcius'
+  publishVersion = VERSION_NAME
+  desc = 'Thermometer for Android'
+  website = 'https://github.com/MoyuruAizawa/Celsius'
 }
